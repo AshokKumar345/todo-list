@@ -2,12 +2,10 @@ const newTask = document.getElementById("input");
 const addTask = document.getElementById("add-btn");
 const taskList = document.getElementById("task-list");
 
-// Add a task to the list when button is clicked
 addTask.addEventListener("click", () => {
     addToList();
 });
 
-// Add a task to the list when Enter key pressed
 newTask.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
         addToList();
@@ -17,7 +15,6 @@ newTask.addEventListener("keyup", (e) => {
 function addToList() {
     let text = newTask.value;
     if (text) {
-        // Create the listItems
         const listItem = document.createElement("li");
         listItem.className = "task-item";
         const checkbox = document.createElement("button");
@@ -30,23 +27,17 @@ function addToList() {
         closeButton.className = "btn-close";
         closeButton.innerHTML = `<i class="fa-solid fa-xmark"><i/>`;
 
-        // Append the buttons and text to the list
         listItem.appendChild(checkbox);
         listItem.appendChild(span);
         listItem.appendChild(closeButton);
 
-        // Append the listItem to the task list
         taskList.appendChild(listItem);
-
-        // Clear input field
         newTask.value = "";
-
-        // Add functionality for close button click
-        closeButton.addEventListener("click", () => {
+        closeButton.addEventListen
+            er("click", () => {
             taskList.removeChild(listItem);
         });
 
-        // Add functionality for checkbox click (optional)
         checkbox.addEventListener("click", () => {
             listItem.classList.toggle("active");
         });
